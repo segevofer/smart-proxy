@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="admin">
+	<head>
+		<meta charset='utf-8'>
+		<script src="js/lib/underscore.js"></script>
+		<script src="js/lib/jquery-1.10.2.min.js"></script>
+		<script src="js/lib/jquery-ui-1.10.2.min.js"></script>
+		<script src="js/lib/angular.min.js"></script>
+		<script src="js/lib/socket.io.min.js"></script>
+		<script type="text/javascript" src="js/lib/jsoneditor-2.3.6/jsoneditor-min.js"></script>
+		<script src="js/rest-proxy.js"></script>
+		<link href="css/rest-proxy.css" rel="stylesheet" type="text/css"/>
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="js/lib/jsoneditor-2.3.6/jsoneditor-min.css">
+	</head>
+	<body ng-controller="MainCtrl">
+        <div class="left-panel">
+            <!-- left header -->
+            <div class="panel-header tabs">
+                <div class="tab">URLs</div>
+            </div>
+            <!-- list -->
+            <div class="list">
+                <div ng-repeat="(url,obj) in map">
+                    <div class="url" ng-click="showJSON(obj.url,obj.active)">{{obj.active && ">" }}{{url}} ({{obj.data.length}})</div>
+                    <div class="url-data">
+                        <div ng-repeat="res in obj.data" ng-click="showJSON(res.url, res.data)" class="json">JSON</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <!-- right header -->
+            <div class="panel-header" style="padding-right:5px;border-left:solid 1px #c2c2c2">
+                <div style="display:inline-block">
+                    {{ selected }}
+                </div>
+                <div style="display:inline-block;float:right">
+                    <i class="fa" ng-click="toggleListening()" style="cursor:pointer" ng-class="{
+                        'fa-circle': options.listening,
+                        'fa-circle-o': !options.listening
+                    }"></i>
+					<span ng-click="setActive(selected,preview)">save</span> | 
+					<span ng-click="setActive(selected)">discard</span>
+                </div>
+            </div>
+            <!-- editor -->
+            <div class="editor">
+                <div json-editor ng-model="preview"></div>
+            </div>
+        </div>
+	</body>
+</html>

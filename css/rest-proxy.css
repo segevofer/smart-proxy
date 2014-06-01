@@ -1,0 +1,61 @@
+html, body {
+	margin: 0;
+	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+	font-size: 9pt;
+    overflow: hidden;
+    height: 100%;
+}
+.url {
+}
+.selected {
+	background-color: #999999;
+	color: #ffffff;
+	outline: 0 solid transparent;
+}
+.selected:focus {
+	outline: 0 solid transparent;
+}
+.json {
+	padding-left: 10px;
+	cursor: pointer;
+}
+.json:hover {
+}
+.editor {
+    height:100%;
+    overflow-y:auto;
+}
+.panel-header {
+    height: 21px;
+    background-color:#f1f1f1;
+    border-bottom: solid 1px #c2c2c2;
+    padding-left: 2px;
+    padding-top: 2px;
+}
+
+.tabs .tab {
+    background-color: #ffffff;
+    border-top: solid 1px #c2c2c2;
+    border-left: solid 1px #c2c2c2;
+    border-right: solid 1px #c2c2c2;
+    padding: 3px;
+    display: inline-block;
+}
+
+.left-panel {
+    background-color: #ffffff;
+    border-right: solid 1px #c2c2c2;
+    width: 400px;
+    height: 100%;
+    float: left;
+}
+
+.right-panel {
+    position: relative;
+    margin-left: 400px;
+    height: 100%;
+}
+.list {
+    overflow-y: auto;
+    height: 100%;
+}
